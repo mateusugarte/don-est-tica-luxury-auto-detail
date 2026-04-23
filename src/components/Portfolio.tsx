@@ -6,48 +6,66 @@ import p5 from "@/assets/portfolio-5.jpg";
 import p6 from "@/assets/portfolio-6.jpg";
 
 const items = [
-  { img: p1, title: "Polimento Profissional", tag: "Pintura", h: 380 },
-  { img: p2, title: "Vitrificação Cerâmica", tag: "Proteção", h: 520 },
-  { img: p4, title: "Aplicação de PPF", tag: "Película", h: 320 },
-  { img: p3, title: "Higienização Interna", tag: "Interior", h: 460 },
-  { img: p5, title: "Detailing de Rodas", tag: "Detalhes", h: 360 },
-  { img: p6, title: "Limpeza de Motor", tag: "Motor", h: 480 },
+  { img: p1, title: "Polimento Profissional", tag: "Pintura", h: 420 },
+  { img: p2, title: "Vitrificação Cerâmica", tag: "Proteção", h: 560 },
+  { img: p4, title: "Aplicação de PPF", tag: "Película", h: 360 },
+  { img: p3, title: "Higienização Interna", tag: "Interior", h: 500 },
+  { img: p5, title: "Detailing de Rodas", tag: "Detalhes", h: 400 },
+  { img: p6, title: "Limpeza de Motor", tag: "Motor", h: 520 },
 ];
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-[#0A0A0A]">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="reveal reveal-fade text-xs uppercase tracking-[0.3em] text-red mb-4 font-medium">
-            Portfólio
-          </p>
-          <h2 className="reveal reveal-skew section-title text-4xl sm:text-6xl text-white">
-            Resultados que impressionam
-          </h2>
+    <section id="portfolio" className="py-28 md:py-44 bg-[#050505]">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-12 gap-8 mb-20 items-end">
+          <div className="lg:col-span-7">
+            <p className="reveal reveal-fade eyebrow mb-8">Portfólio — Arquivo</p>
+            <h2 className="reveal reveal-skew h-display text-5xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
+              Resultados que <em>impressionam</em>.
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="reveal reveal-fade text-white-muted font-light text-sm leading-relaxed max-w-md ml-auto" data-delay="120ms">
+              Uma seleção de trabalhos executados em nosso atelier — cada peça documentada como parte do nosso arquivo permanente.
+            </p>
+          </div>
         </div>
 
-        {/* Masonry: CSS columns */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5">
+        {/* Masonry */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
           {items.map((it, i) => (
             <figure
               key={it.title}
-              className="reveal reveal-clip mb-5 break-inside-avoid relative group overflow-hidden border border-line hover:border-red transition-colors"
-              data-delay={`${i * 100}ms`}
+              className="reveal reveal-clip mb-6 break-inside-avoid relative group overflow-hidden"
+              data-delay={`${i * 90}ms`}
             >
-              <img
-                src={it.img}
-                alt={it.title}
-                loading="lazy"
-                style={{ height: it.h }}
-                className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              <div className="overflow-hidden">
+                <img
+                  src={it.img}
+                  alt={it.title}
+                  loading="lazy"
+                  style={{ height: it.h }}
+                  className="w-full object-cover grayscale-[15%] transition-all duration-[1200ms] group-hover:scale-105 group-hover:grayscale-0"
+                />
+              </div>
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 50%, rgba(5,5,5,0.95) 100%)",
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-transparent opacity-90" />
-              <figcaption className="absolute bottom-0 left-0 p-6">
-                <span className="block text-[10px] uppercase tracking-[0.3em] text-red mb-2 font-medium">
-                  {it.tag}
+              <figcaption className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+                <div>
+                  <span className="block text-[10px] uppercase tracking-[0.4em] text-red mb-2">
+                    — {it.tag}
+                  </span>
+                  <h3 className="font-display text-2xl text-white">{it.title}</h3>
+                </div>
+                <span className="font-display text-xs text-white-muted">
+                  N° {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-2xl text-white">{it.title}</h3>
               </figcaption>
             </figure>
           ))}
