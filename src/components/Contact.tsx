@@ -63,15 +63,15 @@ export function Contact() {
               <textarea name="message" rows={5} className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors resize-none" />
               {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
             </div>
-            <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-glow hover:scale-[1.02] transition-transform">
+            <button type="submit" className="btn-refined w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 uppercase font-normal text-primary-foreground shadow-glow hover:shadow-gold">
               Enviar Mensagem <Send size={16} />
             </button>
             {status === "ok" && (
-              <p className="text-primary text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
+              <p className="text-gold text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
             )}
           </form>
 
-          <div className="space-y-6">
+          <div className="animate-on-scroll from-right space-y-6">
             <a
               href="https://www.google.com/maps/search/?api=1&query=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450"
               target="_blank"
