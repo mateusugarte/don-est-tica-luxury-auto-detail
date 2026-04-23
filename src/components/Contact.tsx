@@ -30,17 +30,17 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="py-28 bg-card/30">
+    <section id="contato" className="py-20 md:py-[120px] bg-card/30">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Contato</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            Vamos transformar <span className="text-gradient italic">seu veículo</span>
+        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Contato</p>
+          <h2 className="section-title text-4xl sm:text-5xl font-light mb-4 leading-tight">
+            Vamos transformar <span className="italic text-gold">seu veículo</span>
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          <form onSubmit={onSubmit} className="space-y-5 bg-card border border-border rounded-2xl p-8 shadow-elegant">
+          <form onSubmit={onSubmit} className="animate-on-scroll space-y-5 bg-card border border-[var(--gold-soft)] rounded-2xl p-8 shadow-elegant">
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Nome</label>
               <input name="name" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors" />
