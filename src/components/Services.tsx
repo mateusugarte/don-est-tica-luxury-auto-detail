@@ -18,15 +18,15 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="py-28 bg-card/30 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial opacity-50 pointer-events-none" />
+    <section id="servicos" className="py-20 md:py-[120px] bg-card/30 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" />
       <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Nossos Serviços</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            Excelência em cada <span className="text-gradient italic">detalhe</span>
+        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Nossos Serviços</p>
+          <h2 className="section-title text-4xl sm:text-5xl font-light mb-4 leading-tight">
+            Excelência em cada <span className="italic text-gold">detalhe</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground font-light mt-6">
             Soluções completas para manter seu veículo com aparência e proteção impecáveis.
           </p>
         </div>
@@ -35,16 +35,15 @@ export function Services() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              style={{ animationDelay: `${i * 0.05}s` }}
-              className="group relative p-7 rounded-2xl bg-card border border-border hover:border-primary/60 hover:-translate-y-2 transition-all duration-500 animate-fade-up overflow-hidden"
+              data-delay={`${i * 100}ms`}
+              className="animate-on-scroll group relative p-7 rounded-2xl bg-card border border-[var(--gold-soft)] hover:-translate-y-2 hover:shadow-gold transition-all duration-500 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="relative">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-gradient-primary group-hover:text-primary-foreground transition-all mb-5">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--gold-soft)] bg-black/40 text-gold group-hover:bg-gold group-hover:text-background transition-all mb-5">
                   <s.icon size={22} />
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h3 className="text-xl font-light mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
