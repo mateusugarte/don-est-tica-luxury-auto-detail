@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const reviews = [
   { name: "Rafael Mendes", car: "BMW 320i", text: "Serviço impecável. Meu carro saiu como novo, brilho de showroom. Recomendo de olhos fechados." },
@@ -12,22 +12,20 @@ const reviews = [
 function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
   const initials = r.name.split(" ").map((n) => n[0]).slice(0, 2).join("");
   return (
-    <article className="bg-[#0A0A0A] border border-line p-7 w-[340px] sm:w-[400px] shrink-0">
-      <div className="flex items-center gap-4 mb-5">
-        <div className="h-12 w-12 rounded-full border-2 border-red bg-surface flex items-center justify-center text-red font-display text-lg">
+    <article className="bg-[#0A0A0A] border border-line p-10 w-[360px] sm:w-[440px] shrink-0 relative">
+      <Quote size={28} className="text-red mb-6 opacity-70" />
+      <p className="font-serif-italic text-white text-xl leading-relaxed mb-8">
+        "{r.text}"
+      </p>
+      <div className="flex items-center gap-4 pt-6 border-t border-line">
+        <div className="h-11 w-11 rounded-full border border-red bg-surface flex items-center justify-center text-red font-display text-base">
           {initials}
         </div>
         <div>
-          <p className="text-white font-medium text-sm">{r.name}</p>
-          <p className="text-white-muted text-xs">{r.car}</p>
+          <p className="text-white text-sm tracking-wide">{r.name}</p>
+          <p className="text-white-muted text-[10px] tracking-[0.3em] uppercase mt-1">{r.car}</p>
         </div>
       </div>
-      <div className="flex gap-1 mb-3">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={14} className="fill-red text-red" />
-        ))}
-      </div>
-      <p className="text-white-muted font-light leading-relaxed text-sm">"{r.text}"</p>
     </article>
   );
 }
@@ -37,24 +35,23 @@ export function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="py-20 md:py-32"
-      style={{ background: "#141414", borderTop: "1px solid #CC0000" }}
+      className="py-28 md:py-40 relative"
+      style={{ background: "#0A0A0A", borderTop: "1px solid #1F1F1F", borderBottom: "1px solid #1F1F1F" }}
     >
-      <div className="container mx-auto px-6 mb-12">
+      <div className="container mx-auto px-6 lg:px-12 mb-16">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="reveal reveal-fade text-xs uppercase tracking-[0.3em] text-red mb-4 font-medium">
-            Depoimentos
+          <p className="reveal reveal-fade eyebrow mb-6" style={{ display: "inline-flex" }}>
+            Testemunhos
           </p>
-          <h2 className="reveal reveal-skew section-title text-4xl sm:text-6xl text-white">
-            O que nossos clientes dizem
+          <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl text-white">
+            O que nossos <em>clientes</em> dizem.
           </h2>
         </div>
       </div>
 
       <div className="marquee-wrapper overflow-hidden relative">
-        {/* edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(90deg, #141414, transparent)" }} />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(-90deg, #141414, transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10" style={{ background: "linear-gradient(90deg, #0A0A0A, transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10" style={{ background: "linear-gradient(-90deg, #0A0A0A, transparent)" }} />
         <div className="marquee-track">
           {loop.map((r, i) => (
             <ReviewCard key={i} r={r} />

@@ -1,65 +1,68 @@
 import aboutImg from "@/assets/about-studio.jpg";
-import { CheckCircle2 } from "lucide-react";
 
-const points = [
-  "Profissionais certificados em detailing premium",
-  "Produtos importados e tecnologia de ponta",
-  "Atendimento personalizado e ambiente exclusivo",
+const stats = [
+  { n: "08+", l: "Anos de ofício" },
+  { n: "1.2K", l: "Veículos atendidos" },
+  { n: "100%", l: "Produtos premium" },
 ];
 
 export function About() {
   return (
-    <section id="sobre" className="py-20 md:py-32 relative">
-      <div className="container mx-auto px-6 grid lg:grid-cols-[60%_40%] gap-12 lg:gap-16 items-center">
-        <div>
-          <p className="reveal reveal-fade text-xs uppercase tracking-[0.3em] text-red mb-4 font-medium">
-            Sobre Nós
-          </p>
-          <h2 className="reveal reveal-skew section-title section-title-left text-4xl sm:text-6xl text-white mb-8">
-            Onde a paixão encontra a perfeição
-          </h2>
-          <p className="reveal reveal-fade text-white-muted leading-relaxed mb-4 font-light text-lg" data-delay="100ms">
-            A Don Estética Automotiva nasceu do desejo de elevar o padrão da estética automotiva no
-            Brasil. Cada veículo que passa por nosso estúdio é tratado como uma obra-prima, com
-            olhar atento aos mínimos detalhes e técnicas reconhecidas internacionalmente.
-          </p>
-          <p className="reveal reveal-fade text-white-muted leading-relaxed mb-8 font-light" data-delay="200ms">
-            Trabalhamos com produtos premium, equipamentos profissionais e uma equipe apaixonada
-            por entregar resultados que superam expectativas.
-          </p>
-          <ul className="space-y-3">
-            {points.map((p, i) => (
-              <li
-                key={p}
-                className="reveal reveal-left flex items-center gap-3 text-white font-light"
-                data-delay={`${i * 80}ms`}
-              >
-                <CheckCircle2 className="text-red shrink-0" size={20} />
-                {p}
-              </li>
-            ))}
-          </ul>
+    <section id="sobre" className="py-28 md:py-44 relative">
+      <div className="container mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        {/* Image side */}
+        <div className="lg:col-span-5 lg:order-1 order-2 relative">
+          <div
+            className="reveal reveal-clip relative overflow-hidden"
+            style={{ aspectRatio: "3/4" }}
+          >
+            <img
+              src={aboutImg}
+              alt="Atelier Don Estética Automotiva"
+              className="w-full h-full object-cover grayscale-[20%]"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(5,5,5,0) 40%, rgba(5,5,5,0.7) 100%)",
+              }}
+            />
+          </div>
+          {/* Frame accent */}
+          <div className="absolute -bottom-6 -right-6 w-2/3 h-1/2 border border-red pointer-events-none hidden md:block" />
+          <div className="absolute -top-6 -left-6 w-px h-24 bg-red hidden md:block" />
         </div>
 
-        <div
-          className="reveal reveal-up relative"
-          data-delay="150ms"
-          style={{
-            clipPath: "polygon(8% 0, 100% 0, 100% 100%, 0% 100%)",
-          }}
-        >
-          <img
-            src={aboutImg}
-            alt="Studio Don Estética Automotiva"
-            width={1280}
-            height={960}
-            loading="lazy"
-            className="w-full h-[500px] object-cover"
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(180deg, transparent 60%, rgba(204,0,0,0.15))" }}
-          />
+        {/* Text side */}
+        <div className="lg:col-span-7 lg:order-2 order-1">
+          <p className="reveal reveal-fade eyebrow mb-8">O Atelier</p>
+          <h2 className="reveal reveal-skew h-display text-5xl sm:text-6xl lg:text-7xl text-white mb-10">
+            Onde a paixão <br />
+            <em>encontra</em> a perfeição.
+          </h2>
+
+          <div className="space-y-6 max-w-xl">
+            <p className="reveal reveal-fade text-white-muted leading-[1.9] font-light text-base" data-delay="100ms">
+              A Don Estética Automotiva nasceu do desejo silencioso de tratar o automóvel como uma obra. Cada veículo que cruza nossa porta é estudado, compreendido e devolvido — não apenas limpo, mas <span className="font-serif-italic text-white">restaurado em sua essência</span>.
+            </p>
+            <p className="reveal reveal-fade text-white-muted leading-[1.9] font-light text-sm" data-delay="200ms">
+              Trabalhamos com produtos de alta linhagem, técnicas reconhecidas internacionalmente e a paciência exigida pelo verdadeiro detailing.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="reveal reveal-up mt-14 grid grid-cols-3 gap-8 max-w-md" data-delay="300ms">
+            {stats.map((s) => (
+              <div key={s.l}>
+                <p className="font-display text-4xl sm:text-5xl text-white mb-2">{s.n}</p>
+                <div className="w-6 h-px bg-red mb-2" />
+                <p className="text-[10px] tracking-[0.25em] uppercase text-white-muted font-light leading-tight">
+                  {s.l}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

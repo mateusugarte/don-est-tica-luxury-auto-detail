@@ -9,19 +9,18 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AIChat } from "@/components/AIChat";
 import { CustomCursor } from "@/components/CustomCursor";
-import { WaveDivider } from "@/components/WaveDivider";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Don Estética Automotiva — Transformando Veículos em Arte" },
+      { title: "Don Estética Automotiva — Atelier Automotivo em Sorocaba" },
       {
         name: "description",
         content:
-          "Estética automotiva premium: polimento, vitrificação, PPF, insulfilm, higienização e detailing completo. Agende agora.",
+          "Atelier dedicado ao detailing premium: polimento, vitrificação cerâmica, PPF, insulfilm, higienização e proteção de pintura. Sorocaba — SP.",
       },
-      { property: "og:title", content: "Don Estética Automotiva" },
+      { property: "og:title", content: "Don Estética Automotiva — Atelier" },
       { property: "og:description", content: "Detailing premium e proteção de pintura para o seu veículo." },
     ],
   }),
@@ -31,16 +30,13 @@ export const Route = createFileRoute("/")({
 function Index() {
   useScrollReveal();
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
+    <div className="min-h-screen bg-[#050505] text-white relative">
       <CustomCursor />
       <Header />
       <main>
         <Hero />
-        <WaveDivider />
         <About />
-        <WaveDivider flip />
         <Services />
-        <WaveDivider />
         <Portfolio />
         <Testimonials />
         <Contact />

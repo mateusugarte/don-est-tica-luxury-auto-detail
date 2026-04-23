@@ -4,10 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
+  { href: "#sobre", label: "Atelier" },
   { href: "#servicos", label: "Serviços" },
   { href: "#portfolio", label: "Portfólio" },
-  { href: "#depoimentos", label: "Avaliações" },
+  { href: "#depoimentos", label: "Testemunhos" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -27,38 +27,39 @@ export function Header() {
       style={
         scrolled
           ? {
-              padding: "0.75rem 0",
-              background: "rgba(10,10,10,0.92)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              borderBottom: "1px solid #CC0000",
+              padding: "0.85rem 0",
+              background: "rgba(5,5,5,0.85)",
+              backdropFilter: "blur(20px) saturate(140%)",
+              WebkitBackdropFilter: "blur(20px) saturate(140%)",
+              borderBottom: "1px solid rgba(184,5,14,0.4)",
             }
-          : { padding: "1.25rem 0", background: "transparent" }
+          : { padding: "1.5rem 0", background: "transparent" }
       }
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
             src={logo}
             alt="Don Estética Automotiva"
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-[var(--red)]/60 group-hover:ring-[var(--red)] transition-all"
+            className="h-10 w-10 rounded-full object-cover ring-1 ring-[var(--red)]/40 group-hover:ring-[var(--red)] transition-all"
           />
           <div className="hidden sm:block">
-            <p className="font-display text-lg leading-none text-white">DON</p>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
+            <p className="font-display text-xl leading-none text-white tracking-wide">Don</p>
+            <p className="text-[9px] tracking-[0.4em] uppercase text-white-muted font-light mt-1">
               Estética Automotiva
             </p>
           </div>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-light text-white-muted hover:text-red transition-colors uppercase tracking-[0.15em]"
+              className="text-[11px] font-light text-white-muted hover:text-white transition-colors uppercase tracking-[0.3em] relative group"
             >
               {l.label}
+              <span className="absolute -bottom-2 left-0 w-0 h-px bg-red transition-all duration-500 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -68,8 +69,9 @@ export function Header() {
           target="_blank"
           rel="noreferrer"
           className="hidden md:inline-flex btn-cta"
+          style={{ padding: "0.7rem 1.5rem", fontSize: "0.65rem" }}
         >
-          Agendar Serviço
+          Agendar
         </a>
 
         <button
@@ -77,19 +79,19 @@ export function Header() {
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-line animate-fade-in">
-          <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <div className="lg:hidden bg-[#050505]/97 backdrop-blur-xl border-t border-line animate-fade-in">
+          <nav className="container mx-auto px-6 py-8 flex flex-col gap-5">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-white/80 hover:text-red transition-colors uppercase tracking-[0.15em] text-sm"
+                className="text-white/80 hover:text-red transition-colors uppercase tracking-[0.3em] text-xs"
               >
                 {l.label}
               </a>
@@ -98,7 +100,7 @@ export function Header() {
               href="https://donesteticaautomotiva.com.br/catalogo/"
               target="_blank"
               rel="noreferrer"
-              className="btn-cta mt-2"
+              className="btn-cta mt-4"
             >
               Agendar Serviço
             </a>
