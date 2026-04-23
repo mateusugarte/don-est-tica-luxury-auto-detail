@@ -30,59 +30,62 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="py-20 md:py-[120px] bg-card/30">
+    <section id="contato" className="py-20 md:py-32 bg-[#0A0A0A]">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
-          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Contato</p>
-          <h2 className="section-title text-4xl sm:text-5xl font-light mb-4 leading-tight">
-            Vamos transformar <span className="italic text-gold">seu veículo</span>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <p className="reveal reveal-fade text-xs uppercase tracking-[0.3em] text-red mb-4 font-medium">
+            Contato
+          </p>
+          <h2 className="reveal reveal-skew section-title text-4xl sm:text-6xl text-white">
+            Vamos transformar seu veículo
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          <form onSubmit={onSubmit} className="animate-on-scroll space-y-5 bg-card border border-[var(--gold-soft)] rounded-2xl p-8 shadow-elegant">
+          <form onSubmit={onSubmit} className="reveal reveal-up space-y-5 bg-surface border border-line p-8">
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">Nome</label>
-              <input name="name" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors" />
-              {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+              <label className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Nome</label>
+              <input name="name" className="mt-2 w-full bg-[#0A0A0A] border border-line px-4 py-3 focus:border-red outline-none transition-colors text-white" />
+              {errors.name && <p className="text-red text-xs mt-1">{errors.name}</p>}
             </div>
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Email</label>
-                <input name="email" type="email" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors" />
-                {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+                <label className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Email</label>
+                <input name="email" type="email" className="mt-2 w-full bg-[#0A0A0A] border border-line px-4 py-3 focus:border-red outline-none transition-colors text-white" />
+                {errors.email && <p className="text-red text-xs mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Telefone</label>
-                <input name="phone" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors" />
-                {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
+                <label className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Telefone</label>
+                <input name="phone" className="mt-2 w-full bg-[#0A0A0A] border border-line px-4 py-3 focus:border-red outline-none transition-colors text-white" />
+                {errors.phone && <p className="text-red text-xs mt-1">{errors.phone}</p>}
               </div>
             </div>
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">Mensagem</label>
-              <textarea name="message" rows={5} className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors resize-none" />
-              {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
+              <label className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Mensagem</label>
+              <textarea name="message" rows={5} className="mt-2 w-full bg-[#0A0A0A] border border-line px-4 py-3 focus:border-red outline-none transition-colors resize-none text-white" />
+              {errors.message && <p className="text-red text-xs mt-1">{errors.message}</p>}
             </div>
-            <button type="submit" className="btn-refined w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 uppercase font-normal text-primary-foreground shadow-glow hover:shadow-gold">
+            <button type="submit" className="btn-cta w-full">
               Enviar Mensagem <Send size={16} />
             </button>
             {status === "ok" && (
-              <p className="text-gold text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
+              <p className="text-red text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
             )}
           </form>
 
-          <div className="animate-on-scroll from-right space-y-6">
+          <div className="reveal reveal-up space-y-6" data-delay="120ms">
             <a
               href="https://www.google.com/maps/search/?api=1&query=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450"
               target="_blank"
               rel="noreferrer"
-              className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+              className="bg-surface border border-line p-6 flex items-start gap-4 hover:border-red transition-colors"
+              style={{ borderLeft: "3px solid #CC0000" }}
             >
-              <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><MapPin size={20} /></div>
+              <div className="h-11 w-11 bg-red/10 flex items-center justify-center text-red shrink-0"><MapPin size={20} /></div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">Endereço</p>
-                <p className="text-foreground mt-1">Av. São Francisco, 236 — Jardim Santa Rosália</p>
-                <p className="text-muted-foreground text-sm">Sorocaba - SP, 18095-450</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Endereço</p>
+                <p className="text-white mt-1">Av. São Francisco, 236 — Jardim Santa Rosália</p>
+                <p className="text-white-muted text-sm">Sorocaba - SP, 18095-450</p>
               </div>
             </a>
             <div className="grid sm:grid-cols-2 gap-6">
@@ -90,26 +93,28 @@ export function Contact() {
                 href="https://wa.me/5511994022344"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+                className="bg-surface border border-line p-6 flex items-start gap-4 hover:border-red transition-colors"
+                style={{ borderLeft: "3px solid #CC0000" }}
               >
-                <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><Phone size={20} /></div>
+                <div className="h-11 w-11 bg-red/10 flex items-center justify-center text-red shrink-0"><Phone size={20} /></div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">WhatsApp</p>
-                  <p className="text-foreground mt-1">(11) 99402-2344</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">WhatsApp</p>
+                  <p className="text-white mt-1">(11) 99402-2344</p>
                 </div>
               </a>
               <a
                 href="mailto:contato@donesteticaautomotiva.com.br"
-                className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+                className="bg-surface border border-line p-6 flex items-start gap-4 hover:border-red transition-colors"
+                style={{ borderLeft: "3px solid #CC0000" }}
               >
-                <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><Mail size={20} /></div>
+                <div className="h-11 w-11 bg-red/10 flex items-center justify-center text-red shrink-0"><Mail size={20} /></div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
-                  <p className="text-foreground mt-1 text-sm break-all">contato@donesteticaautomotiva.com.br</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-white-muted font-medium">Email</p>
+                  <p className="text-white mt-1 text-sm break-all">contato@donesteticaautomotiva.com.br</p>
                 </div>
               </a>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-border h-64">
+            <div className="overflow-hidden border border-line h-64">
               <iframe
                 title="Mapa Don Estética Automotiva"
                 src="https://www.google.com/maps?q=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450&output=embed"
