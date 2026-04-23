@@ -14,19 +14,20 @@ export function Hero() {
         height={1080}
         className="absolute inset-0 w-full h-full object-cover scale-105 animate-fade-in"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10 pt-24">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary mb-8 animate-fade-up">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-soft)] bg-black/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold mb-8 animate-fade-up">
             <Sparkles size={14} /> Detailing Premium
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95] text-foreground animate-fade-up [animation-delay:0.1s]">
-            Transformando <br />
-            Veículos em <span className="text-gradient italic">Arte</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl leading-[1.05] text-foreground animate-fade-up [animation-delay:0.1s]">
+            <span className="font-light">Transformando</span> <br />
+            <span className="font-light">Veículos em</span> <span className="italic text-gold">Arte</span>
           </h1>
-          <p className="mt-8 text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-up [animation-delay:0.2s]">
+          <p className="mt-8 text-lg sm:text-xl font-light text-muted-foreground max-w-xl leading-relaxed animate-fade-up [animation-delay:0.2s]">
             Estética automotiva de alto padrão. Polimento, vitrificação, PPF e detailing
             completo executados com precisão e paixão.
           </p>
@@ -35,14 +36,14 @@ export function Hero() {
               href="https://donesteticaautomotiva.com.br/catalogo/"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+              className="btn-refined group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm uppercase font-normal text-primary-foreground shadow-glow hover:shadow-gold"
             >
               Agendar Serviço
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#servicos"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 backdrop-blur px-8 py-4 text-sm font-semibold text-foreground hover:border-primary hover:bg-card transition-all"
+              className="btn-refined inline-flex items-center gap-2 rounded-full border border-[var(--gold-soft)] bg-black/30 backdrop-blur px-8 py-4 text-sm uppercase font-normal text-foreground hover:border-[var(--gold)]"
             >
               Nossos Serviços
             </a>
@@ -55,7 +56,7 @@ export function Hero() {
               { n: "5★", l: "Avaliação" },
             ].map((s) => (
               <div key={s.l}>
-                <p className="font-display text-3xl text-gradient">{s.n}</p>
+                <p className="font-display text-4xl text-gold font-light">{s.n}</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">
                   {s.l}
                 </p>
