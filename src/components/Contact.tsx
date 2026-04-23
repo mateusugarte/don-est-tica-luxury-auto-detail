@@ -72,35 +72,50 @@ export function Contact() {
           </form>
 
           <div className="space-y-6">
-            <div className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+            >
               <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><MapPin size={20} /></div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Endereço</p>
-                <p className="text-foreground mt-1">Av. Principal, 1000 — Centro</p>
+                <p className="text-foreground mt-1">Av. São Francisco, 236 — Jardim Santa Rosália</p>
+                <p className="text-muted-foreground text-sm">Sorocaba - SP, 18095-450</p>
               </div>
-            </div>
+            </a>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
+              <a
+                href="https://wa.me/5511994022344"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+              >
                 <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><Phone size={20} /></div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Telefone</p>
-                  <p className="text-foreground mt-1">(00) 0000-0000</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">WhatsApp</p>
+                  <p className="text-foreground mt-1">(11) 99402-2344</p>
                 </div>
-              </div>
-              <div className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
+              </a>
+              <a
+                href="mailto:contato@donesteticaautomotiva.com.br"
+                className="bg-card border border-border rounded-2xl p-6 flex items-start gap-4 hover:border-primary transition-colors"
+              >
                 <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><Mail size={20} /></div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
-                  <p className="text-foreground mt-1 text-sm break-all">contato@donestetica.com.br</p>
+                  <p className="text-foreground mt-1 text-sm break-all">contato@donesteticaautomotiva.com.br</p>
                 </div>
-              </div>
+              </a>
             </div>
             <div className="rounded-2xl overflow-hidden border border-border h-64">
               <iframe
-                title="Mapa"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-46.65%2C-23.57%2C-46.62%2C-23.55&layer=mapnik"
-                className="w-full h-full grayscale contrast-125"
+                title="Mapa Don Estética Automotiva"
+                src="https://www.google.com/maps?q=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450&output=embed"
+                className="w-full h-full"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
