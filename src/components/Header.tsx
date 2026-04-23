@@ -24,9 +24,10 @@ export function Header() {
     <header
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/60 py-3"
+          ? "py-3 backdrop-blur-2xl border-b border-[var(--gold-soft)]"
           : "bg-transparent py-5"
       }`}
+      style={scrolled ? { backgroundColor: "rgba(0,0,0,0.85)" } : undefined}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3 group">

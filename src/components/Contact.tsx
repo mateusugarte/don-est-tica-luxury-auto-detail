@@ -30,17 +30,17 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="py-28 bg-card/30">
+    <section id="contato" className="py-20 md:py-[120px] bg-card/30">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Contato</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            Vamos transformar <span className="text-gradient italic">seu veículo</span>
+        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Contato</p>
+          <h2 className="section-title text-4xl sm:text-5xl font-light mb-4 leading-tight">
+            Vamos transformar <span className="italic text-gold">seu veículo</span>
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          <form onSubmit={onSubmit} className="space-y-5 bg-card border border-border rounded-2xl p-8 shadow-elegant">
+          <form onSubmit={onSubmit} className="animate-on-scroll space-y-5 bg-card border border-[var(--gold-soft)] rounded-2xl p-8 shadow-elegant">
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Nome</label>
               <input name="name" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors" />
@@ -63,15 +63,15 @@ export function Contact() {
               <textarea name="message" rows={5} className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors resize-none" />
               {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
             </div>
-            <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-glow hover:scale-[1.02] transition-transform">
+            <button type="submit" className="btn-refined w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 uppercase font-normal text-primary-foreground shadow-glow hover:shadow-gold">
               Enviar Mensagem <Send size={16} />
             </button>
             {status === "ok" && (
-              <p className="text-primary text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
+              <p className="text-gold text-sm text-center">Mensagem enviada! Entraremos em contato em breve.</p>
             )}
           </form>
 
-          <div className="space-y-6">
+          <div className="animate-on-scroll from-right space-y-6">
             <a
               href="https://www.google.com/maps/search/?api=1&query=Av.+S%C3%A3o+Francisco%2C+236+-+Jardim+Santa+Ros%C3%A1lia%2C+Sorocaba+-+SP%2C+18095-450"
               target="_blank"

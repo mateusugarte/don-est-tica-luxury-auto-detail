@@ -16,23 +16,24 @@ const items = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="py-28">
+    <section id="portfolio" className="py-20 md:py-[120px]">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Portfólio</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            Resultados que <span className="text-gradient italic">impressionam</span>
+        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Portfólio</p>
+          <h2 className="section-title text-4xl sm:text-5xl font-light mb-4 leading-tight">
+            Resultados que <span className="italic text-gold">impressionam</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground font-light mt-6">
             Uma seleção de trabalhos realizados em nosso estúdio.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {items.map((it) => (
+          {items.map((it, i) => (
             <div
               key={it.title}
-              className="group relative aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer"
+              data-delay={`${i * 100}ms`}
+              className="animate-on-scroll scale-in group relative aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer border border-[var(--gold-soft)]"
             >
               <img
                 src={it.img}
@@ -44,10 +45,10 @@ export function Portfolio() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span className="inline-block text-[10px] uppercase tracking-widest text-primary mb-2 font-semibold">
+                <span className="inline-block text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
                   {it.tag}
                 </span>
-                <h3 className="font-display text-2xl font-semibold text-foreground">
+                <h3 className="text-2xl font-light text-foreground">
                   {it.title}
                 </h3>
               </div>
