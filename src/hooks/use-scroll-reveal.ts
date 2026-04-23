@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 
 /**
- * Observes any element with class `.animate-on-scroll` and toggles
- * `.is-visible` once when it enters the viewport. One-shot per element.
+ * IntersectionObserver-based reveal. Add `.reveal` + a variant
+ * (`.reveal-up`, `.reveal-skew`, `.reveal-left`, `.reveal-clip`, `.reveal-fade`)
+ * to any element. One-shot. Optional `data-delay="200ms"`.
  */
 export function useScrollReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const els = document.querySelectorAll<HTMLElement>(".animate-on-scroll");
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
     if (!els.length) return;
 
     const io = new IntersectionObserver(
@@ -22,7 +23,7 @@ export function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
 
     els.forEach((el) => io.observe(el));

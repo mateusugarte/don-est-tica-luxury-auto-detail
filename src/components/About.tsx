@@ -9,48 +9,57 @@ const points = [
 
 export function About() {
   return (
-    <section id="sobre" className="py-20 md:py-[120px] relative">
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative group animate-on-scroll from-left">
-          <div className="absolute -inset-2 bg-[var(--gold)] opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700" />
+    <section id="sobre" className="py-20 md:py-32 relative">
+      <div className="container mx-auto px-6 grid lg:grid-cols-[60%_40%] gap-12 lg:gap-16 items-center">
+        <div>
+          <p className="reveal reveal-fade text-xs uppercase tracking-[0.3em] text-red mb-4 font-medium">
+            Sobre Nós
+          </p>
+          <h2 className="reveal reveal-skew section-title section-title-left text-4xl sm:text-6xl text-white mb-8">
+            Onde a paixão encontra a perfeição
+          </h2>
+          <p className="reveal reveal-fade text-white-muted leading-relaxed mb-4 font-light text-lg" data-delay="100ms">
+            A Don Estética Automotiva nasceu do desejo de elevar o padrão da estética automotiva no
+            Brasil. Cada veículo que passa por nosso estúdio é tratado como uma obra-prima, com
+            olhar atento aos mínimos detalhes e técnicas reconhecidas internacionalmente.
+          </p>
+          <p className="reveal reveal-fade text-white-muted leading-relaxed mb-8 font-light" data-delay="200ms">
+            Trabalhamos com produtos premium, equipamentos profissionais e uma equipe apaixonada
+            por entregar resultados que superam expectativas.
+          </p>
+          <ul className="space-y-3">
+            {points.map((p, i) => (
+              <li
+                key={p}
+                className="reveal reveal-left flex items-center gap-3 text-white font-light"
+                data-delay={`${i * 80}ms`}
+              >
+                <CheckCircle2 className="text-red shrink-0" size={20} />
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div
+          className="reveal reveal-up relative"
+          data-delay="150ms"
+          style={{
+            clipPath: "polygon(8% 0, 100% 0, 100% 100%, 0% 100%)",
+          }}
+        >
           <img
             src={aboutImg}
             alt="Studio Don Estética Automotiva"
             width={1280}
             height={960}
             loading="lazy"
-            className="relative rounded-2xl shadow-elegant w-full object-cover"
+            className="w-full h-[500px] object-cover"
           />
-          <div className="absolute -bottom-6 -right-6 hidden sm:block bg-card border border-[var(--gold-soft)] rounded-2xl p-6 shadow-elegant">
-            <p className="font-display text-5xl text-gold font-light">8+</p>
-            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mt-1">
-              Anos de excelência
-            </p>
-          </div>
-        </div>
-
-        <div className="animate-on-scroll from-right">
-          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">Sobre Nós</p>
-          <h2 className="text-4xl sm:text-5xl font-light mb-6 leading-tight">
-            Onde a paixão por carros encontra a <span className="italic text-gold">perfeição</span>
-          </h2>
-          <p className="text-muted-foreground font-light leading-relaxed mb-4">
-            A Don Estética Automotiva nasceu do desejo de elevar o padrão da estética automotiva no Brasil.
-            Cada veículo que passa por nosso estúdio é tratado como uma obra-prima, com olhar atento
-            aos mínimos detalhes e técnicas reconhecidas internacionalmente.
-          </p>
-          <p className="text-muted-foreground font-light leading-relaxed mb-8">
-            Trabalhamos com produtos premium, equipamentos profissionais e uma equipe apaixonada
-            por entregar resultados que superam expectativas.
-          </p>
-          <ul className="space-y-3">
-            {points.map((p) => (
-              <li key={p} className="flex items-center gap-3 text-foreground/90 font-light">
-                <CheckCircle2 className="text-gold shrink-0" size={20} />
-                {p}
-              </li>
-            ))}
-          </ul>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "linear-gradient(180deg, transparent 60%, rgba(204,0,0,0.15))" }}
+          />
         </div>
       </div>
     </section>

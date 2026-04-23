@@ -7,6 +7,7 @@ const links = [
   { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
   { href: "#portfolio", label: "Portfólio" },
+  { href: "#depoimentos", label: "Avaliações" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -22,34 +23,40 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
+      className="fixed top-0 inset-x-0 z-40 transition-all duration-500"
+      style={
         scrolled
-          ? "py-3 backdrop-blur-2xl border-b border-[var(--gold-soft)]"
-          : "bg-transparent py-5"
-      }`}
-      style={scrolled ? { backgroundColor: "rgba(0,0,0,0.85)" } : undefined}
+          ? {
+              padding: "0.75rem 0",
+              background: "rgba(10,10,10,0.92)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              borderBottom: "1px solid #CC0000",
+            }
+          : { padding: "1.25rem 0", background: "transparent" }
+      }
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
             src={logo}
             alt="Don Estética Automotiva"
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-primary/40 group-hover:ring-primary transition-all"
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-[var(--red)]/60 group-hover:ring-[var(--red)] transition-all"
           />
           <div className="hidden sm:block">
-            <p className="font-display text-lg leading-none text-foreground">Don</p>
-            <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+            <p className="font-display text-lg leading-none text-white">DON</p>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
               Estética Automotiva
             </p>
           </div>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="text-sm font-light text-white-muted hover:text-red transition-colors uppercase tracking-[0.15em]"
             >
               {l.label}
             </a>
@@ -60,13 +67,13 @@ export function Header() {
           href="https://donesteticaautomotiva.com.br/catalogo/"
           target="_blank"
           rel="noreferrer"
-          className="hidden md:inline-flex items-center justify-center rounded-full bg-gradient-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+          className="hidden md:inline-flex btn-cta"
         >
           Agendar Serviço
         </a>
 
         <button
-          className="md:hidden text-foreground"
+          className="lg:hidden text-white"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -75,14 +82,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border animate-fade-in">
+        <div className="lg:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-line animate-fade-in">
           <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-foreground/80 hover:text-primary transition-colors"
+                className="text-white/80 hover:text-red transition-colors uppercase tracking-[0.15em] text-sm"
               >
                 {l.label}
               </a>
@@ -91,7 +98,7 @@ export function Header() {
               href="https://donesteticaautomotiva.com.br/catalogo/"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-flex justify-center rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
+              className="btn-cta mt-2"
             >
               Agendar Serviço
             </a>

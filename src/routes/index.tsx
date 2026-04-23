@@ -4,10 +4,12 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Portfolio } from "@/components/Portfolio";
+import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AIChat } from "@/components/AIChat";
 import { CustomCursor } from "@/components/CustomCursor";
+import { WaveDivider } from "@/components/WaveDivider";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
@@ -29,14 +31,18 @@ export const Route = createFileRoute("/")({
 function Index() {
   useScrollReveal();
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
       <CustomCursor />
       <Header />
       <main>
         <Hero />
+        <WaveDivider />
         <About />
+        <WaveDivider flip />
         <Services />
+        <WaveDivider />
         <Portfolio />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

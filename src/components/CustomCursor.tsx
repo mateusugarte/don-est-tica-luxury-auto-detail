@@ -2,41 +2,38 @@ import { useEffect, useRef } from "react";
 
 export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
     const dot = dotRef.current;
-    if (!dot) return;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
 
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let curX = targetX;
-    let curY = targetY;
+    let tx = window.innerWidth / 2;
+    let ty = window.innerHeight / 2;
+    let dx = tx, dy = ty;
+    let rx = tx, ry = ty;
     let raf = 0;
 
-    const onMove = (e: MouseEvent) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-    };
+    const onMove = (e: MouseEvent) => { tx = e.clientX; ty = e.clientY; };
     const onOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
-      if (t.closest("a, button, input, textarea, [role='button']")) {
-        dot.classList.add("is-hover");
-      } else {
-        dot.classList.remove("is-hover");
-      }
+      const hover = !!t.closest("a, button, input, textarea, [role='button']");
+      ring.classList.toggle("is-hover", hover);
     };
-
     const tick = () => {
-      curX += (targetX - curX) * 0.18;
-      curY += (targetY - curY) * 0.18;
-      dot.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
+      dx += (tx - dx) * 0.35;
+      dy += (ty - dy) * 0.35;
+      rx += (tx - rx) * 0.12;
+      ry += (ty - ry) * 0.12;
+      dot.style.transform = `translate(${dx}px, ${dy}px) translate(-50%, -50%)`;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
       raf = requestAnimationFrame(tick);
     };
     tick();
-
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseover", onOver);
     return () => {
@@ -46,5 +43,10 @@ export function CustomCursor() {
     };
   }, []);
 
-  return <div ref={dotRef} className="cursor-dot hidden md:block" aria-hidden />;
+  return (
+    <>
+      <div ref={ringRef} className="cursor-ring hidden md:block" aria-hidden />
+      <div ref={dotRef} className="cursor-dot hidden md:block" aria-hidden />
+    </>
+  );
 }
