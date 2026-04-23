@@ -1,70 +1,140 @@
-import heroCar from "@/assets/hero-car.jpg";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useRef } from "react";
+import car from "@/assets/hero-bmw.png";
+import { ArrowRight } from "lucide-react";
+
+const TITLE = "DON ESTÉTICA AUTOMOTIVA";
+
+function CharReveal({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("").map((c, i) => (
+        <span
+          key={i}
+          className="char-reveal"
+          data-space={c === " " ? "true" : undefined}
+          style={{ animationDelay: `${i * 40}ms` }}
+        >
+          {c === " " ? "\u00A0" : c}
+        </span>
+      ))}
+    </>
+  );
+}
+
+function Particles() {
+  const items = Array.from({ length: 24 });
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {items.map((_, i) => {
+        const left = (i * 37) % 100;
+        const top = (i * 53) % 100;
+        const dur = 6 + ((i * 7) % 10);
+        const delay = (i * 0.3) % 5;
+        return (
+          <span
+            key={i}
+            className="particle"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              animationDuration: `${dur}s`,
+              animationDelay: `${delay}s`,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+}
 
 export function Hero() {
+  const carRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = carRef.current;
+        if (!el) return;
+        const y = Math.min(window.scrollY, 600);
+        const t = y / 600; // 0..1
+        const scale = 1 + 0.35 * t;
+        const ty = -60 * t;
+        const tx = 30 * t;
+        const bright = 1 - 0.4 * t;
+        el.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${scale})`;
+        el.style.filter = `brightness(${bright})`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-end overflow-hidden"
+      style={{ background: "#0A0A0A" }}
     >
-      <img
-        src={heroCar}
-        alt="Carro de luxo recebendo polimento profissional"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover scale-105 animate-fade-in"
+      {/* Red radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 40% at 60% 80%, rgba(204,0,0,0.25) 0%, transparent 70%)",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      <Particles />
 
-      <div className="container mx-auto px-6 relative z-10 pt-24">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-soft)] bg-black/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold mb-8 animate-fade-up">
-            <Sparkles size={14} /> Detailing Premium
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl leading-[1.05] text-foreground animate-fade-up [animation-delay:0.1s]">
-            <span className="font-light">Transformando</span> <br />
-            <span className="font-light">Veículos em</span> <span className="italic text-gold">Arte</span>
-          </h1>
-          <p className="mt-8 text-lg sm:text-xl font-light text-muted-foreground max-w-xl leading-relaxed animate-fade-up [animation-delay:0.2s]">
-            Estética automotiva de alto padrão. Polimento, vitrificação, PPF e detailing
-            completo executados com precisão e paixão.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4 animate-fade-up [animation-delay:0.3s]">
-            <a
-              href="https://donesteticaautomotiva.com.br/catalogo/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-refined group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm uppercase font-normal text-primary-foreground shadow-glow hover:shadow-gold"
-            >
-              Agendar Serviço
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#servicos"
-              className="btn-refined inline-flex items-center gap-2 rounded-full border border-[var(--gold-soft)] bg-black/30 backdrop-blur px-8 py-4 text-sm uppercase font-normal text-foreground hover:border-[var(--gold)]"
-            >
-              Nossos Serviços
-            </a>
-          </div>
-
-          <div className="mt-16 grid grid-cols-3 gap-8 max-w-md animate-fade-up [animation-delay:0.4s]">
-            {[
-              { n: "+1.2k", l: "Veículos" },
-              { n: "10", l: "Especialidades" },
-              { n: "5★", l: "Avaliação" },
-            ].map((s) => (
-              <div key={s.l}>
-                <p className="font-display text-4xl text-gold font-light">{s.n}</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">
-                  {s.l}
-                </p>
-              </div>
-            ))}
-          </div>
+      {/* Centered text content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10 pt-20">
+        <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white max-w-5xl leading-[0.95]">
+          <CharReveal text={TITLE} />
+        </h1>
+        <p
+          className="subtitle-wipe mt-8 text-base sm:text-lg text-white-muted max-w-xl font-light tracking-[0.15em] uppercase"
+        >
+          Transformando Veículos em Arte
+        </p>
+        <div
+          className="mt-10 flex flex-wrap gap-4 justify-center subtitle-wipe"
+          style={{ animationDelay: "1.4s" }}
+        >
+          <a
+            href="https://donesteticaautomotiva.com.br/catalogo/"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-cta"
+          >
+            Agendar Serviço
+            <ArrowRight size={16} />
+          </a>
+          <a href="#servicos" className="btn-outline">
+            Nossos Serviços
+          </a>
         </div>
       </div>
+
+      {/* Car image */}
+      <img
+        ref={carRef}
+        src={car}
+        alt="BMW 320i Sport"
+        className="hero-car-enter absolute pointer-events-none select-none"
+        style={{
+          width: "70%",
+          right: "5%",
+          bottom: 0,
+          maxHeight: "65vh",
+          objectFit: "contain",
+          transition: "transform 0.05s linear, filter 0.05s linear",
+          willChange: "transform, filter",
+        }}
+      />
     </section>
   );
 }
