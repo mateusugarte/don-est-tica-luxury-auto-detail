@@ -1,21 +1,27 @@
-import logo from "@/assets/logo.jpg";
 import { Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-[#050505] border-t border-line">
-      <div className="container mx-auto px-6 lg:px-12 py-20">
-        <div className="grid md:grid-cols-12 gap-12 mb-16">
+      <div className="container mx-auto px-6 lg:px-12 py-16 md:py-20">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 mb-12 md:mb-16">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <img src={logo} alt="Don" className="h-12 w-12 rounded-full object-cover ring-1 ring-[var(--red)]/40" />
+              <img
+                src="/images/logo.jpg"
+                alt="Don"
+                className="h-12 w-12 rounded-full object-cover ring-1 ring-[var(--red)]/40"
+              />
               <div>
-                <p className="font-display text-2xl text-white">Don</p>
-                <p className="text-[10px] tracking-[0.4em] uppercase text-white-muted font-light mt-1">Estética Automotiva</p>
+                <p className="text-2xl text-white font-light tracking-tight">Don</p>
+                <p className="text-[10px] tracking-[0.4em] uppercase text-white-muted font-light mt-1">
+                  Estética Automotiva
+                </p>
               </div>
             </div>
-            <p className="font-serif-italic text-white-muted text-base max-w-sm leading-relaxed">
-              Um atelier dedicado ao automóvel — onde técnica, paciência e produtos de alta linhagem revelam a essência de cada peça.
+            <p className="text-white-muted text-sm sm:text-base max-w-sm leading-relaxed font-light">
+              Um atelier dedicado ao automóvel — onde técnica, paciência e produtos de alta
+              linhagem revelam a essência de cada peça.
             </p>
           </div>
 
@@ -59,7 +65,11 @@ export function Footer() {
           <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
             © {new Date().getFullYear()} Don Estética Automotiva — Todos os direitos reservados
           </p>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light font-serif-italic">
+        <div className="border-t border-line pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
+            © {new Date().getFullYear()} Don Estética Automotiva — Todos os direitos reservados
+          </p>
+          <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
             Crafted with patience.
           </p>
         </div>
