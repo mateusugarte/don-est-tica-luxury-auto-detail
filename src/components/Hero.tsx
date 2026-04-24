@@ -55,7 +55,7 @@ export function Hero() {
         </AnimatedContainer>
 
         {/* Headline */}
-        <h1 className="h-display text-[18vw] sm:text-[12vw] lg:text-[9rem] xl:text-[10.5rem] text-center text-white leading-[0.95] break-words">
+        <h1 className="h-display text-[14vw] sm:text-[12vw] lg:text-[9rem] xl:text-[10.5rem] text-center text-white leading-[0.95] break-words hyphens-auto w-full px-2">
           <TextStagger
             text="Transformando"
             className="block"
