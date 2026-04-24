@@ -61,16 +61,16 @@ export function AIChat() {
       {/* Floating launcher */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-8 right-8 z-50 h-16 w-16 rounded-full bg-[var(--red)] text-white flex items-center justify-center hover:bg-[var(--red-dark)] transition-all duration-500 animate-float-soft shadow-[0_20px_60px_-15px_rgba(200,22,29,0.6)] hover:scale-105"
+        className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50 h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-[var(--red)] text-white flex items-center justify-center hover:bg-[var(--red-dark)] transition-all duration-500 animate-float-soft hover:scale-105"
         aria-label="Abrir chat"
         style={{ boxShadow: "0 20px 60px -15px rgba(200,22,29,0.55), 0 0 0 1px rgba(255,255,255,0.05)" }}
       >
         <span className="absolute inset-0 rounded-full animate-pulse-glow pointer-events-none" />
-        {open ? <X size={22} /> : <Bot size={26} strokeWidth={1.5} />}
+        {open ? <X size={20} /> : <Bot size={24} strokeWidth={1.5} />}
       </button>
 
       {open && (
-        <div className="fixed bottom-28 right-8 z-50 w-[calc(100vw-4rem)] sm:w-[400px] h-[34rem] bg-[#0A0A0A] border border-line shadow-elegant flex flex-col overflow-hidden animate-slide-up">
+        <div className="fixed bottom-24 right-4 left-4 sm:left-auto sm:bottom-28 sm:right-8 z-50 sm:w-[400px] h-[min(34rem,calc(100vh-8rem))] bg-[#0A0A0A] border border-line shadow-elegant flex flex-col overflow-hidden animate-slide-up">
           {/* Header */}
           <div className="px-5 py-5 flex items-center gap-3 border-b border-line bg-[#0C0C0C]">
             <div className="h-10 w-10 rounded-full bg-[#111111] border border-line flex items-center justify-center">
