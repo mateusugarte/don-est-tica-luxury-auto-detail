@@ -35,16 +35,20 @@ export function Header() {
           : { padding: "1.5rem 0", background: "transparent" }
       }
     >
-      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3 group">
-          <img
-            src="/images/logo.jpg"
-            alt="Don Estética Automotiva"
-            className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover ring-1 ring-[var(--red)]/40 group-hover:ring-[var(--red)] transition-all"
-          />
-          <div className="hidden sm:block">
-            <p className="text-lg sm:text-xl leading-none text-white tracking-tight font-light">Don</p>
-            <p className="text-[9px] tracking-[0.4em] uppercase text-white-muted font-light mt-1">
+      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between gap-4">
+        <a href="#inicio" className="group flex items-center gap-3 sm:gap-4">
+          <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center overflow-hidden rounded-sm border border-line bg-surface transition-all duration-300 group-hover:border-red/60 group-hover:bg-surface-2">
+            <img
+              src="/images/logo.jpg"
+              alt="Don Estética Automotiva"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <p className="text-base sm:text-lg leading-none text-ivory tracking-[0.08em] font-normal">
+              Don
+            </p>
+            <p className="mt-1 text-[8px] sm:text-[9px] leading-[1.45] tracking-[0.38em] uppercase text-white-muted font-light">
               Estética Automotiva
             </p>
           </div>
