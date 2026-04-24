@@ -102,7 +102,14 @@
     letter-spacing: 0.005em;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-display {
+  /* Headings default to clean sans — only the .h-display class uses serif */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .font-display {
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.01em;

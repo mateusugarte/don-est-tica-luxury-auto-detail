@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.jpg";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -39,12 +38,12 @@ export function Header() {
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
-            src={logo}
+            src="/images/logo.jpg"
             alt="Don Estética Automotiva"
-            className="h-10 w-10 rounded-full object-cover ring-1 ring-[var(--red)]/40 group-hover:ring-[var(--red)] transition-all"
+            className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover ring-1 ring-[var(--red)]/40 group-hover:ring-[var(--red)] transition-all"
           />
           <div className="hidden sm:block">
-            <p className="font-display text-xl leading-none text-white tracking-wide">Don</p>
+            <p className="text-lg sm:text-xl leading-none text-white tracking-tight font-light">Don</p>
             <p className="text-[9px] tracking-[0.4em] uppercase text-white-muted font-light mt-1">
               Estética Automotiva
             </p>
