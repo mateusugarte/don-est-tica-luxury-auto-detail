@@ -48,7 +48,7 @@ export function Contact() {
         <div className="grid lg:grid-cols-12 gap-8 mb-20 items-end">
           <div className="lg:col-span-7">
             <p className="reveal reveal-fade eyebrow mb-8">Contato — Agendamento</p>
-            <h2 className="reveal reveal-skew h-display text-5xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
+            <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
               Vamos transformar <em>seu</em> veículo.
             </h2>
           </div>
@@ -72,7 +72,7 @@ export function Contact() {
                 <MapPin size={18} className="text-red mt-1 shrink-0" />
                 <div className="flex-1">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-white-muted mb-3">— Endereço</p>
-                  <p className="font-display text-2xl text-white group-hover:text-red-glow transition-colors leading-tight">Av. São Francisco, 236</p>
+                  <p className="font-display text-xl sm:text-2xl text-white group-hover:text-red-glow transition-colors leading-tight">Av. São Francisco, 236</p>
                   <p className="text-white-muted text-sm mt-2 font-light">Jardim Santa Rosália · Sorocaba — SP, 18095-450</p>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export function Contact() {
                 <Phone size={18} className="text-red mt-1 shrink-0" />
                 <div className="flex-1">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-white-muted mb-3">— WhatsApp</p>
-                  <p className="font-display text-2xl text-white group-hover:text-red-glow transition-colors">(11) 99402-2344</p>
+                  <p className="font-display text-xl sm:text-2xl text-white group-hover:text-red-glow transition-colors">(11) 99402-2344</p>
                 </div>
               </div>
             </a>
@@ -101,7 +101,7 @@ export function Contact() {
                 <Mail size={18} className="text-red mt-1 shrink-0" />
                 <div className="flex-1">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-white-muted mb-3">— Email</p>
-                  <p className="font-display text-xl text-white group-hover:text-red-glow transition-colors break-all">contato@donesteticaautomotiva.com.br</p>
+                  <p className="font-display text-base sm:text-xl text-white group-hover:text-red-glow transition-colors break-all">contato@donesteticaautomotiva.com.br</p>
                 </div>
               </div>
             </a>
@@ -122,7 +122,7 @@ export function Contact() {
           <form onSubmit={onSubmit} className="lg:col-span-7 reveal reveal-up space-y-8" data-delay="100ms">
             <div className="border-b border-line pb-6">
               <label className="text-[10px] uppercase tracking-[0.4em] text-white-muted">— Nome</label>
-              <input name="name" placeholder="Seu nome completo" className="mt-3 w-full bg-transparent border-0 px-0 py-2 focus:outline-none text-white placeholder:text-white-muted/40 font-display text-2xl" />
+              <input name="name" placeholder="Seu nome completo" className="mt-3 w-full bg-transparent border-0 px-0 py-2 focus:outline-none text-white placeholder:text-white-muted/40 font-display text-xl sm:text-2xl" />
               {errors.name && <p className="text-red text-xs mt-2">{errors.name}</p>}
             </div>
 
@@ -145,11 +145,11 @@ export function Contact() {
               {errors.message && <p className="text-red text-xs mt-2">{errors.message}</p>}
             </div>
 
-            <div className="flex items-center justify-between pt-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
               {status === "ok" ? (
                 <p className="text-white-muted text-xs font-serif-italic">Abrindo WhatsApp — finalize o envio por lá.</p>
-              ) : <span />}
-              <button type="submit" className="btn-cta">
+              ) : <span className="hidden sm:inline" />}
+              <button type="submit" className="btn-cta self-start sm:self-auto">
                 Enviar via WhatsApp <ArrowRight size={14} />
               </button>
             </div>

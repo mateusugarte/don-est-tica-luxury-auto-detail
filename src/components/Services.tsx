@@ -213,7 +213,7 @@ export function Services() {
         <div className="grid lg:grid-cols-12 gap-8 mb-24 items-end">
           <div className="lg:col-span-7">
             <p className="reveal reveal-fade eyebrow mb-8">Serviços — Atelier</p>
-            <h2 className="reveal reveal-skew h-display text-5xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
+            <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
               Excelência em <em>cada</em> detalhe.
             </h2>
           </div>

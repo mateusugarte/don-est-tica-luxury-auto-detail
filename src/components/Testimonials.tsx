@@ -37,7 +37,7 @@ export function Testimonials() {
           <p className="reveal reveal-fade eyebrow mb-6" style={{ display: "inline-flex" }}>
             Testemunhos
           </p>
-          <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl text-white">
+          <h2 className="reveal reveal-skew h-display text-3xl sm:text-5xl md:text-6xl text-white">
             O que nossos <em>clientes</em> dizem.
           </h2>
         </div>
