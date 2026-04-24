@@ -11,7 +11,7 @@ export function About() {
     <section id="sobre" className="py-28 md:py-44 relative">
       <div className="container mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         {/* Image side */}
-        <div className="lg:col-span-5 lg:order-1 order-2 relative">
+        <div className="lg:col-span-5 lg:order-1 order-2">
           <div
             className="reveal reveal-clip relative overflow-hidden"
             style={{ aspectRatio: "3/4" }}
@@ -19,19 +19,16 @@ export function About() {
             <img
               src={aboutImg}
               alt="Atelier Don Estética Automotiva"
-              className="w-full h-full object-cover grayscale-[20%]"
+              className="w-full h-full object-cover grayscale-[15%]"
             />
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(5,5,5,0) 40%, rgba(5,5,5,0.7) 100%)",
+                  "linear-gradient(180deg, rgba(6,6,6,0) 50%, rgba(6,6,6,0.6) 100%)",
               }}
             />
           </div>
-          {/* Frame accent */}
-          <div className="absolute -bottom-6 -right-6 w-2/3 h-1/2 border border-red pointer-events-none hidden md:block" />
-          <div className="absolute -top-6 -left-6 w-px h-24 bg-red hidden md:block" />
         </div>
 
         {/* Text side */}

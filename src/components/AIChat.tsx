@@ -20,7 +20,7 @@ export function AIChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "ai", text: "Olá! Sou o assistente Don. Como posso ajudar com seu veículo hoje?" },
+    { role: "ai", text: "Olá. Sou o assistente Don. Como posso ajudar com seu veículo?" },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -60,32 +60,33 @@ export function AIChat() {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full bg-gradient-primary text-primary-foreground shadow-glow flex items-center justify-center hover:scale-110 transition-transform animate-pulse-glow"
+        className="fixed bottom-6 right-6 z-50 h-12 w-12 bg-[var(--red)] text-white flex items-center justify-center hover:bg-[var(--red-dark)] transition-colors animate-pulse-glow"
         aria-label="Abrir chat"
       >
-        {open ? <X size={26} /> : <MessageCircle size={26} />}
+        {open ? <X size={20} /> : <MessageCircle size={20} />}
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 h-[32rem] bg-card border border-border rounded-2xl shadow-elegant flex flex-col overflow-hidden animate-slide-up">
-          <div className="bg-gradient-primary px-5 py-4 flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-background/20 backdrop-blur flex items-center justify-center">
-              <MessageCircle size={18} className="text-primary-foreground" />
+        <div className="fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 h-[32rem] bg-[#0C0C0C] border border-line shadow-elegant flex flex-col overflow-hidden animate-slide-up">
+          <div className="px-5 py-4 flex items-center gap-3 border-b border-line">
+            <div className="h-2 w-2 bg-[var(--red)]" />
+            <div className="flex-1">
+              <p className="font-display text-white text-base leading-tight">Assistente Don</p>
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted mt-0.5">Online</p>
             </div>
-            <div>
-              <p className="font-display text-primary-foreground text-base leading-tight">Assistente Don</p>
-              <p className="text-[11px] text-primary-foreground/80">Online agora</p>
-            </div>
+            <button onClick={() => setOpen(false)} className="text-white-muted hover:text-white transition-colors">
+              <X size={16} />
+            </button>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
             {msgs.map((m, i) => (
               <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                  className={`max-w-[82%] px-3.5 py-2.5 text-sm leading-relaxed ${
                     m.role === "user"
-                      ? "bg-gradient-primary text-primary-foreground rounded-br-sm"
-                      : "bg-secondary text-foreground rounded-bl-sm"
+                      ? "bg-[var(--red)] text-white"
+                      : "bg-[#111111] text-white border border-line"
                   }`}
                 >
                   {m.text}
@@ -94,11 +95,11 @@ export function AIChat() {
             ))}
             {loading && (
               <div className="flex justify-start">
-                <div className="bg-secondary px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5">
+                <div className="bg-[#111111] border border-line px-4 py-3 flex gap-1.5">
                   {[0, 1, 2].map((i) => (
                     <span
                       key={i}
-                      className="h-2 w-2 rounded-full bg-primary inline-block"
+                      className="h-1.5 w-1.5 bg-[var(--red)] inline-block"
                       style={{ animation: `typing 1.2s infinite ${i * 0.15}s` }}
                     />
                   ))}
@@ -109,20 +110,20 @@ export function AIChat() {
 
           <form
             onSubmit={(e) => { e.preventDefault(); send(); }}
-            className="border-t border-border p-3 flex gap-2 bg-card"
+            className="border-t border-line p-3 flex gap-2 bg-[#0C0C0C]"
           >
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Digite sua mensagem..."
-              className="flex-1 bg-background border border-border rounded-full px-4 py-2.5 text-sm focus:border-primary outline-none transition-colors"
+              placeholder="Digite sua mensagem…"
+              className="flex-1 bg-transparent border-0 px-2 py-2 text-sm focus:outline-none text-white placeholder:text-white-muted/60"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="h-10 w-10 shrink-0 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center disabled:opacity-50 hover:scale-110 transition-transform"
+              className="h-9 w-9 shrink-0 bg-[var(--red)] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[var(--red-dark)] transition-colors"
             >
-              <Send size={16} />
+              <Send size={14} />
             </button>
           </form>
         </div>

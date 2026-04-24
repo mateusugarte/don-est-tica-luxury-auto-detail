@@ -8,7 +8,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AIChat } from "@/components/AIChat";
-import { CustomCursor } from "@/components/CustomCursor";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
@@ -30,8 +29,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   useScrollReveal();
   return (
-    <div className="min-h-screen bg-[#050505] text-white relative">
-      <CustomCursor />
+    <div className="min-h-screen bg-[#060606] text-white relative">
       <Header />
       <main>
         <Hero />

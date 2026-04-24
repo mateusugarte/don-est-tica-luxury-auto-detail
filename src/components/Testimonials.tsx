@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+// minimal review marquee
 
 const reviews = [
   { name: "Rafael Mendes", car: "BMW 320i", text: "Serviço impecável. Meu carro saiu como novo, brilho de showroom. Recomendo de olhos fechados." },
@@ -10,21 +10,15 @@ const reviews = [
 ];
 
 function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
-  const initials = r.name.split(" ").map((n) => n[0]).slice(0, 2).join("");
   return (
-    <article className="bg-[#0A0A0A] border border-line p-10 w-[360px] sm:w-[440px] shrink-0 relative">
-      <Quote size={28} className="text-red mb-6 opacity-70" />
-      <p className="font-serif-italic text-white text-xl leading-relaxed mb-8">
+    <article className="w-[360px] sm:w-[440px] shrink-0 px-10 py-2 border-l border-line">
+      <p className="font-serif-italic text-white text-2xl leading-snug mb-8">
         "{r.text}"
       </p>
-      <div className="flex items-center gap-4 pt-6 border-t border-line">
-        <div className="h-11 w-11 rounded-full border border-red bg-surface flex items-center justify-center text-red font-display text-base">
-          {initials}
-        </div>
-        <div>
-          <p className="text-white text-sm tracking-wide">{r.name}</p>
-          <p className="text-white-muted text-[10px] tracking-[0.3em] uppercase mt-1">{r.car}</p>
-        </div>
+      <div className="flex items-baseline gap-3">
+        <span className="text-[10px] tracking-[0.4em] uppercase text-red">—</span>
+        <p className="text-white text-sm tracking-wide">{r.name}</p>
+        <span className="text-white-muted text-[10px] tracking-[0.3em] uppercase">· {r.car}</span>
       </div>
     </article>
   );
