@@ -26,7 +26,7 @@ interface TextStaggerText extends HTMLMotionProps<"div"> {
   stagger?: number
   direction?: TransformDirectionType
   className?: string
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
 }
 export interface AnimatedContainerProps extends HTMLMotionProps<"p"> {
   transformDirection?: TransformDirectionType
@@ -97,7 +97,7 @@ const GRADIENT_POSITIONS = {
   left: { x: "-10%", y: "0%" },
   right: { x: "110%", y: "0%" },
 }
-const TRANSITION_CONFIG = { ease: [0.25, 0.1, 0.25, 1], duration: 0.5 }
+const TRANSITION_CONFIG: Transition = { ease: [0.25, 0.1, 0.25, 1] as any, duration: 0.5 }
 
 const heroVariants = cva(
   "relative min-h-svh w-full overflow-hidden",
@@ -235,11 +235,11 @@ export const AnimatedContainer = React.forwardRef<
       whileInView={"visible"}
       viewport={{ once: true, ...props.viewport }}
       transition={{
-        duration: props.transition?.delay ?? 0.4,
-        ease: props.transition?.delay ?? "easeIn",
-        delay: props.transition?.delay ?? 0.4,
+        duration: 0.4,
+        ease: "easeIn",
+        delay: 0.4,
         ...props.transition,
-      }}
+      } as Transition}
       {...props}
     >
       {children}
