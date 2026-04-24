@@ -249,12 +249,20 @@
 
 /* ─── AIChat ──────────────────────────────── */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(200,22,29,0.5); }
-  50% { box-shadow: 0 0 0 14px rgba(200,22,29,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,22,29,0.45); }
+  50% { box-shadow: 0 0 0 18px rgba(200,22,29,0); }
+}
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 @keyframes typing {
   0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
@@ -265,7 +273,9 @@
   to { opacity: 1; }
 }
 .animate-pulse-glow { animation: pulse-glow 2.4s infinite; }
+.animate-float-soft { animation: float-soft 4s ease-in-out infinite; }
 .animate-slide-up { animation: slide-up 0.4s var(--ease-out-quart) both; }
-.animate-fade-in { animation: fade-in 0.4s ease both; }
+.animate-slide-in-right { animation: slide-in-right 0.45s var(--ease-out-expo) both; }
+.animate-fade-in { animation: fade-in 0.3s ease both; }
 
 @utility shadow-elegant { box-shadow: 0 30px 80px -30px rgba(0,0,0,0.85); }
