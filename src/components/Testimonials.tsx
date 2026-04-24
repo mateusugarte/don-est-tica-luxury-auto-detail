@@ -11,8 +11,8 @@ const reviews = [
 
 function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
   return (
-    <article className="w-[380px] sm:w-[480px] shrink-0 px-12">
-      <p className="font-serif-italic text-white text-[1.6rem] leading-[1.45] mb-10">
+    <article className="w-[280px] sm:w-[420px] md:w-[480px] shrink-0 px-6 sm:px-12">
+      <p className="font-serif-italic text-white text-xl sm:text-2xl md:text-[1.6rem] leading-[1.45] mb-8 sm:mb-10">
         “{r.text}”
       </p>
       <div className="flex items-baseline gap-3">

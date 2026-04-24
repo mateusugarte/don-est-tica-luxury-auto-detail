@@ -44,18 +44,18 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-40 pb-32 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 pt-32 sm:pt-40 pb-24 sm:pb-32 flex flex-col items-center">
         {/* Eyebrow */}
         <AnimatedContainer
           transformDirection="bottom"
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
           <span className="eyebrow">Don — Atelier Automotivo</span>
         </AnimatedContainer>
 
         {/* Headline */}
-        <h1 className="h-display text-[15vw] sm:text-[11vw] lg:text-[9rem] xl:text-[10.5rem] text-center text-white leading-[0.95]">
+        <h1 className="h-display text-[18vw] sm:text-[12vw] lg:text-[9rem] xl:text-[10.5rem] text-center text-white leading-[0.95] break-words">
           <TextStagger
             text="Transformando"
             className="block"
@@ -89,7 +89,7 @@ export function Hero() {
         <AnimatedContainer
           transformDirection="bottom"
           transition={{ delay: 1.7, duration: 0.8 }}
-          className="mt-16 flex flex-wrap gap-12 justify-center"
+          className="mt-12 sm:mt-16 flex flex-col sm:flex-row flex-wrap gap-8 sm:gap-12 justify-center items-center"
         >
           <a href="#contato" className="btn-cta">
             Agendar Serviço
