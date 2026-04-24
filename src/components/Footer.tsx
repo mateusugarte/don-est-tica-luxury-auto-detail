@@ -38,13 +38,15 @@ export function Footer() {
             <p className="text-[10px] tracking-[0.4em] uppercase text-red mb-5">— Social</p>
             <div className="flex flex-col gap-3">
               {[
-                { I: Instagram, l: "Instagram" },
-                { I: Facebook, l: "Facebook" },
-                { I: MessageCircle, l: "WhatsApp" },
-              ].map(({ I, l }) => (
+                { I: Instagram, l: "Instagram", href: "https://instagram.com/donesteticaautomotiva" },
+                { I: Facebook, l: "Facebook", href: "https://facebook.com/donesteticaautomotiva" },
+                { I: MessageCircle, l: "WhatsApp", href: "https://wa.me/5511994022344" },
+              ].map(({ I, l, href }) => (
                 <a
                   key={l}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-3 text-white-muted hover:text-red transition-colors duration-300 text-sm font-light group"
                 >
                   <I size={14} />

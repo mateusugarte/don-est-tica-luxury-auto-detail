@@ -110,7 +110,7 @@ function ServiceRow({ s, index, onOpen }: { s: Service; index: number; onOpen: (
         </span>
       </div>
       <div className="col-span-10 md:col-span-6">
-        <h3 className="font-display text-3xl md:text-4xl text-white group-hover:italic transition-all">
+        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-white group-hover:italic transition-all">
           {s.title}
         </h3>
       </div>
@@ -143,22 +143,22 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
       >
         <button
           onClick={onClose}
-          className="sticky top-6 ml-auto mr-6 z-10 h-10 w-10 flex items-center justify-center text-white-muted hover:text-white border border-line hover:border-red transition-colors bg-[#0A0A0A]"
+          className="sticky top-4 ml-auto mr-4 md:mr-6 z-20 h-10 w-10 flex items-center justify-center text-white-muted hover:text-white border border-line hover:border-red transition-colors bg-[#0A0A0A]"
           aria-label="Fechar"
         >
           <X size={16} />
         </button>
 
-        <div className="px-8 md:px-14 pb-20 -mt-16">
+        <div className="px-6 sm:px-8 md:px-14 pb-20 pt-4 md:pt-0 md:-mt-12">
           <p className="eyebrow mb-8">Serviço</p>
-          <h3 className="h-display text-4xl md:text-6xl text-white mb-8">
+          <h3 className="h-display text-3xl sm:text-4xl md:text-6xl text-white mb-6 md:mb-8 break-words">
             {service.title}
           </h3>
-          <p className="text-white-muted text-base leading-[1.9] font-light max-w-xl mb-12">
+          <p className="text-white-muted text-sm sm:text-base leading-[1.8] font-light max-w-xl mb-10 md:mb-12">
             {service.description}
           </p>
 
-          <div className="space-y-3 mb-14">
+          <div className="space-y-3 mb-12 md:mb-14">
             <p className="text-[10px] tracking-[0.4em] uppercase text-red mb-5">— Inclui</p>
             {service.highlights.map((h) => (
               <div key={h} className="flex items-baseline gap-4 border-t border-line pt-3">
@@ -173,19 +173,19 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
             <img
               src={service.gallery[0]}
               alt=""
-              className="w-full h-72 object-cover col-span-2 grayscale-[15%]"
+              className="w-full h-56 sm:h-72 object-cover col-span-2 grayscale-[15%]"
             />
             {service.gallery.slice(1).map((g, i) => (
               <img
                 key={i}
                 src={g}
                 alt=""
-                className="w-full h-44 object-cover grayscale-[15%]"
+                className="w-full h-32 sm:h-44 object-cover grayscale-[15%]"
               />
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-10 pt-6 border-t border-line">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-6 sm:gap-10 pt-6 border-t border-line">
             <a
               href="https://donesteticaautomotiva.com.br/catalogo/"
               target="_blank"
@@ -213,7 +213,7 @@ export function Services() {
         <div className="grid lg:grid-cols-12 gap-8 mb-24 items-end">
           <div className="lg:col-span-7">
             <p className="reveal reveal-fade eyebrow mb-8">Serviços — Atelier</p>
-            <h2 className="reveal reveal-skew h-display text-5xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
+            <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl lg:text-7xl text-white max-w-2xl">
               Excelência em <em>cada</em> detalhe.
             </h2>
           </div>
