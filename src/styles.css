@@ -279,4 +279,80 @@
 .animate-slide-in-right { animation: slide-in-right 0.45s var(--ease-out-expo) both; }
 .animate-fade-in { animation: fade-in 0.3s ease both; }
 
+/* ─── Extra micro-animations ──────────────── */
+@keyframes shimmer-line {
+  0% { transform: scaleX(0); transform-origin: left center; }
+  50% { transform: scaleX(1); transform-origin: left center; }
+  50.01% { transform-origin: right center; }
+  100% { transform: scaleX(0); transform-origin: right center; }
+}
+.shimmer-line {
+  display: block;
+  height: 1px;
+  background: var(--red);
+  animation: shimmer-line 3.5s var(--ease-out-quart) infinite;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.blink-dot { animation: blink-dot 1.6s ease-in-out infinite; }
+
+/* Underline link effect */
+.story-link {
+  position: relative;
+  display: inline-block;
+}
+.story-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.story-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Hover lift for clickable cards/rows */
+.lift {
+  transition: transform 0.5s var(--ease-out-quart), color 0.4s var(--ease-out-quart);
+}
+.lift:hover { transform: translateY(-3px); }
+
+/* Image kenburns subtle */
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+.kenburns { animation: kenburns 14s ease-in-out infinite alternate; }
+
+/* Scroll progress bar (fixed top) */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 1px;
+  background: var(--red);
+  z-index: 60;
+  width: 0%;
+  transition: width 0.05s linear;
+}
+
+/* Section number floating */
+.section-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--white-muted);
+  opacity: 0.4;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
 @utility shadow-elegant { box-shadow: 0 30px 80px -30px rgba(0,0,0,0.85); }
+
