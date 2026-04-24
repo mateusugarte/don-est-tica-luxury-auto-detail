@@ -4,5 +4,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/_shell.html" },
+    { "source": "/((?!assets/|.*\\..*).*)", "destination": "/_shell.html" }
+  ]
 }
