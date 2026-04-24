@@ -15,7 +15,8 @@ export function Contact() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
     const r = schema.safeParse(data);
     if (!r.success) {
       const errs: Record<string, string> = {};
@@ -26,7 +27,19 @@ export function Contact() {
     }
     setErrors({});
     setStatus("ok");
-    e.currentTarget.reset();
+
+    const text = [
+      `Olá, sou ${data.name}.`,
+      `Email: ${data.email}`,
+      `Telefone: ${data.phone}`,
+      ``,
+      data.message,
+    ].join("\n");
+    const url = `https://api.whatsapp.com/send/?phone=5511994022344&text=${encodeURIComponent(
+      text,
+    )}&type=phone_number&app_absent=0`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    form.reset();
   };
 
   return (
@@ -134,10 +147,10 @@ export function Contact() {
 
             <div className="flex items-center justify-between pt-4">
               {status === "ok" ? (
-                <p className="text-red text-sm font-serif-italic">Mensagem enviada — entraremos em contato em breve.</p>
+                <p className="text-white-muted text-xs font-serif-italic">Abrindo WhatsApp — finalize o envio por lá.</p>
               ) : <span />}
               <button type="submit" className="btn-cta">
-                Enviar Mensagem <ArrowRight size={14} />
+                Enviar via WhatsApp <ArrowRight size={14} />
               </button>
             </div>
           </form>

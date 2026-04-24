@@ -11,14 +11,14 @@ const reviews = [
 
 function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
   return (
-    <article className="w-[360px] sm:w-[440px] shrink-0 px-10 py-2 border-l border-line">
-      <p className="font-serif-italic text-white text-2xl leading-snug mb-8">
-        "{r.text}"
+    <article className="w-[380px] sm:w-[480px] shrink-0 px-12">
+      <p className="font-serif-italic text-white text-[1.6rem] leading-[1.45] mb-10">
+        “{r.text}”
       </p>
       <div className="flex items-baseline gap-3">
-        <span className="text-[10px] tracking-[0.4em] uppercase text-red">—</span>
-        <p className="text-white text-sm tracking-wide">{r.name}</p>
-        <span className="text-white-muted text-[10px] tracking-[0.3em] uppercase">· {r.car}</span>
+        <span className="w-6 h-px bg-red translate-y-[-3px]" />
+        <p className="text-white text-[11px] tracking-[0.3em] uppercase">{r.name}</p>
+        <span className="text-white-muted text-[10px] tracking-[0.25em] uppercase">· {r.car}</span>
       </div>
     </article>
   );

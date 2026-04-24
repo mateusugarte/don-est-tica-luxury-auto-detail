@@ -46,15 +46,15 @@
   --font-body: "Space Grotesk", system-ui, sans-serif;
 
   /* Brand palette — minimal, dark, refined */
-  --red: #C8161D;
-  --red-dark: #8E0F14;
-  --red-glow: #E11D26;
-  --bg: #060606;
-  --surface: #0C0C0C;
-  --surface-2: #111111;
-  --line: #1A1A1A;
-  --white: #F1ECE4;
-  --white-muted: #7A756D;
+  --red: #B0151B;
+  --red-dark: #7A0F13;
+  --red-glow: #C8161D;
+  --bg: #050505;
+  --surface: #0A0A0A;
+  --surface-2: #0E0E0E;
+  --line: #161616;
+  --white: #EDE7DD;
+  --white-muted: #6E6962;
 
   /* shadcn token mapping */
   --background: #060606;
