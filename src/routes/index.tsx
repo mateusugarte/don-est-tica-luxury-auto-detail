@@ -44,6 +44,26 @@ function ScrollProgress() {
 
 function Index() {
   useScrollReveal();
+
+  useEffect(() => {
+    // Em alguns hosts (ex: Vercel) o hash da URL faz o navegador pular direto
+    // para a seção ao recarregar. Forçamos o topo no primeiro carregamento.
+    if (typeof window === "undefined") return;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    const hash = window.location.hash;
+    window.scrollTo(0, 0);
+    if (hash) {
+      // Remove o hash da URL sem recarregar e rola suavemente após o layout.
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      requestAnimationFrame(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#060606] text-white relative">
       <ScrollProgress />
