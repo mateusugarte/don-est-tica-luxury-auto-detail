@@ -147,10 +147,10 @@ export function Contact() {
 
             <div className="flex items-center justify-between pt-4">
               {status === "ok" ? (
-                <p className="text-red text-sm font-serif-italic">Mensagem enviada — entraremos em contato em breve.</p>
+                <p className="text-white-muted text-xs font-serif-italic">Abrindo WhatsApp — finalize o envio por lá.</p>
               ) : <span />}
               <button type="submit" className="btn-cta">
-                Enviar Mensagem <ArrowRight size={14} />
+                Enviar via WhatsApp <ArrowRight size={14} />
               </button>
             </div>
           </form>
