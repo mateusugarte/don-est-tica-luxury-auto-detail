@@ -29,20 +29,21 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Don Estética Automotiva — Atelier Automotivo em Sorocaba" },
+      {
+        name: "description",
+        content:
+          "Atelier dedicado ao detailing premium em Sorocaba: vitrificação cerâmica, PPF, higienização, polimento e proteção de pintura.",
+      },
+      { property: "og:title", content: "Don Estética Automotiva" },
+      { property: "og:description", content: "Detailing premium e proteção de pintura." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
+      { rel: "apple-touch-icon", href: "/favicon.jpg" },
     ],
   }),
   shellComponent: RootShell,
