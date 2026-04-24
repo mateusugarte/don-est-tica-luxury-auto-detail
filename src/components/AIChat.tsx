@@ -6,13 +6,11 @@ type Msg = { role: "user" | "ai"; text: string };
 const WEBHOOK = "https://aula-n8n.riftvt.easypanel.host/webhook/4bb9b7c6-2c00-497d-98cb-c6683654a394";
 
 function getChatId() {
-  if (typeof window === "undefined") return "server";
-
   const k = "don_chat_id";
-  let id = window.localStorage.getItem(k);
+  let id = localStorage.getItem(k);
   if (!id) {
-    id = crypto.randomUUID?.() ?? `${Math.random().toString(36).slice(2)}${Date.now()}`;
-    window.localStorage.setItem(k, id);
+    id = (crypto.randomUUID?.() ?? Math.random().toString(36).slice(2) + Date.now());
+    localStorage.setItem(k, id);
   }
   return id;
 }
