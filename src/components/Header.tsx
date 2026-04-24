@@ -69,7 +69,6 @@ export function Header() {
           target="_blank"
           rel="noreferrer"
           className="hidden md:inline-flex btn-cta"
-          style={{ padding: "0.7rem 1.5rem", fontSize: "0.65rem" }}
         >
           Agendar
         </a>
