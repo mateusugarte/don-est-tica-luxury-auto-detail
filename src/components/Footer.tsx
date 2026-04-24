@@ -65,10 +65,6 @@ export function Footer() {
           <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
             © {new Date().getFullYear()} Don Estética Automotiva — Todos os direitos reservados
           </p>
-        <div className="border-t border-line pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
-            © {new Date().getFullYear()} Don Estética Automotiva — Todos os direitos reservados
-          </p>
           <p className="text-[10px] tracking-[0.3em] uppercase text-white-muted font-light">
             Crafted with patience.
           </p>

@@ -11,14 +11,16 @@ const reviews = [
 
 function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
   return (
-    <article className="w-[380px] sm:w-[480px] shrink-0 px-12">
-      <p className="font-serif-italic text-white text-[1.6rem] leading-[1.45] mb-10">
+    <article className="w-[320px] sm:w-[460px] shrink-0 px-8 sm:px-12">
+      <p className="font-serif-italic text-white text-xl sm:text-[1.55rem] leading-[1.5] mb-8 sm:mb-10">
         “{r.text}”
       </p>
-      <div className="flex items-baseline gap-3">
+      <div className="flex items-baseline gap-3 flex-wrap">
         <span className="w-6 h-px bg-red translate-y-[-3px]" />
-        <p className="text-white text-[11px] tracking-[0.3em] uppercase">{r.name}</p>
-        <span className="text-white-muted text-[10px] tracking-[0.25em] uppercase">· {r.car}</span>
+        <p className="text-white text-[11px] tracking-[0.3em] uppercase font-light">{r.name}</p>
+        <span className="text-white-muted text-[10px] tracking-[0.25em] uppercase font-light">
+          · {r.car}
+        </span>
       </div>
     </article>
   );
@@ -29,15 +31,19 @@ export function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="py-28 md:py-40 relative"
-      style={{ background: "#0A0A0A", borderTop: "1px solid #1F1F1F", borderBottom: "1px solid #1F1F1F" }}
+      className="py-20 md:py-32 relative"
+      style={{
+        background: "#0A0A0A",
+        borderTop: "1px solid #1F1F1F",
+        borderBottom: "1px solid #1F1F1F",
+      }}
     >
-      <div className="container mx-auto px-6 lg:px-12 mb-16">
+      <div className="container mx-auto px-6 lg:px-12 mb-12 md:mb-16">
         <div className="text-center max-w-2xl mx-auto">
           <p className="reveal reveal-fade eyebrow mb-6" style={{ display: "inline-flex" }}>
             Testemunhos
           </p>
-          <h2 className="reveal reveal-skew h-display text-4xl sm:text-6xl text-white">
+          <h2 className="reveal reveal-skew h-display text-4xl sm:text-5xl md:text-6xl text-white">
             O que nossos <em>clientes</em> dizem.
           </h2>
         </div>
